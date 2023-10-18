@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -23,14 +26,38 @@
             <!-- Page Heading -->
             <header class="bg-white shadow">
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
+                    {{ $header ?? '' }}
                 </div>
             </header>
 
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+
+                        <ul class="list-group my-5">
+                            <li class="list-group-item">
+                                <a href="">Posts</a>
+                            </li>
+
+                            <li class="list-group-item">
+                                <a href="{{ route('categories.index') }}">Category</a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                    <div class="col-md-8 my-5">
+                        {{ $slot ?? '' }}
+
+                           @yield('content')
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+
             <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+
         </div>
     </body>
 </html>
