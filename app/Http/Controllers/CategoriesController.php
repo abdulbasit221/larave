@@ -40,6 +40,8 @@ class CategoriesController extends Controller
             'name' =>'required|unique:categories'
         ]);
 
+    session()->flash('succes','category created successfully.');
+
         Category::create($request->all());
 
         return redirect()->route('categories.create');
@@ -49,7 +51,7 @@ class CategoriesController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Re  sponse
      */
     public function show($id)
     {

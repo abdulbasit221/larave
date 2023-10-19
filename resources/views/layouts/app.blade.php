@@ -49,6 +49,12 @@
                     <div class="col-md-8 my-5">
                         {{ $slot ?? '' }}
 
+                        @if(session()->has('success'))
+                        <div class="alert alert-success">
+                            {{ session()->get('success') }}
+                        </div> 
+                        @endif
+
                            @yield('content')
                        
                     </div>
